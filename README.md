@@ -1,2 +1,2 @@
 # AutoMindustry
- Mindustry server hosting automation
+Mindustry server hosting automation
