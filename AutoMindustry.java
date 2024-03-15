@@ -12,7 +12,6 @@ public class AutoMindustry {
         System.out.print("1. Download latest Mindustry jar \n2. Use custom jar file\n\n>>  ");
         // Read user input
         int choice = readLine.nextInt();
-        readLine.close(); // Close the scanner object to prevent mem leak
         //if user wants to download latest jar download the jar from the latestServer and save it as Mindustry.jar
         if (choice == 1){
             System.out.println("Downloading latest Mindustry jar...");
@@ -45,5 +44,6 @@ public class AutoMindustry {
                 System.out.println("Error using custom jar file: " + e);
             }
         }
+        readLine.close(); // Close the scanner object to prevent mem leak
     }
 }
