@@ -2,16 +2,17 @@ import java.util.Scanner;
 
 /* this is a multiline comment :0
 Everything needs a class matching the filename   */
-public class Main {
+public class AutoMindustry {
     public static void main(String[] args){                  // Every class needs a main function or smt
         //downloads and stuff
         String latestServer = "https://github.com/Anuken/Mindustry/releases/latest/download/Mindustry.jar";
         System.out.println("Welcome to AutoMindustry :)"); // Use 'System.out.print()' to prevent newlines
 
-        Scanner readLine = new Scanner(System.in);
+        Scanner readLine = new Scanner(System.in); // Create a scanner object to read user input
         System.out.print("1. Download latest Mindustry jar \n2. Use custom jar file\n\n>>  ");
         // Read user input
         int choice = readLine.nextInt();
+        readLine.close(); // Close the scanner object to prevent mem leak
         //if user wants to download latest jar download the jar from the latestServer and save it as Mindustry.jar
         if (choice == 1){
             System.out.println("Downloading latest Mindustry jar...");
@@ -23,6 +24,7 @@ public class Main {
                 while ((bytesRead = in.read(dataBuffer, 0, 1024)) != -1) {
                     fileOutputStream.write(dataBuffer, 0, bytesRead);
                 }
+                fileOutputStream.close(); // Close the FileOutputStream to prevent mem leak
                 System.out.println("Download complete!");
             } catch (java.io.IOException e) {
                 System.out.println("Error downloading Mindustry jar: " + e);
